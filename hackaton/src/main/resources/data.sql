@@ -76,7 +76,7 @@ INSERT INTO "room" VALUES
     ('621cce908b1823d75b8d4ac8','Virxo'),
     ('621cce90ac116b59528474a2','Čitaonica');
 
-INSERT INTO "faculty" VALUES
+INSERT INTO "faculty"("id", "name", "opens", "closes") VALUES
     ('621cce904343d3504b31255b','Fakultet tehničkih nauka','08:00','14:00'),
     ('621cce904fe28ca82550bc67','Prirodno-matematički fakultet','08:00','18:00'),
     ('621cce90b11c90d836e0cea9','Tehnološki fakultet','08:00','18:00'),
