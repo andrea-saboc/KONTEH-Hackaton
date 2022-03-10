@@ -33,5 +33,17 @@ public class DeskService {
 		// TODO Auto-generated method stub
 		return new ArrayList<Desk>( roomRepository.findById(room).get().getDesks());
 	}
+
+
+	public Desk save(Desk desk) {
+		// TODO Auto-generated method stub
+		Desk newDesk = null;
+		try {
+			newDesk = deskRepository.save(desk);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return newDesk;
+	}
 	
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +33,16 @@ public class DeskController {
 	public ResponseEntity<List<Desk>> getByRoom(@RequestParam String roomId){
 		System.out.println("Looking for-->"+roomId);
 		return new ResponseEntity<List<Desk>>(deskService.getByRoom(roomId), HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<String> addDesk(@RequestBody Desk desk){
+		Desk savedDesk = deskService.save(desk);
+		if(savedDesk == null) {
+			return new ResponseEntity<String>("Error occured while creating desk!", HttpStatus.BAD_REQUEST);
+		}else {
+			return new ResponseEntity<String>("Desk successfully saved!", HttpStatus.OK);
+		}
 	}
 
 }
