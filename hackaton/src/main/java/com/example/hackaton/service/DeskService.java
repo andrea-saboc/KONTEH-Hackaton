@@ -29,9 +29,9 @@ public class DeskService {
 	}
 
 
-	public List<Desk> getByRoom(String roomId) {
+	public List<Desk> getByRoom(String room) {
 		// TODO Auto-generated method stub
-		return roomRepository.findById(roomId).get().getDesks();
+		return new ArrayList<Desk>( roomRepository.findById(room).get().getDesks());
 	}
 	
 }
