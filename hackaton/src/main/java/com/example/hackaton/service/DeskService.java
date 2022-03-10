@@ -12,17 +12,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.hackaton.model.Desk;
 import com.example.hackaton.repository.DeskRepository;
+import com.example.hackaton.repository.RoomRepository;
 
 @Service
 public class DeskService {
 	
 	@Autowired
 	private DeskRepository deskRepository;
+	@Autowired
+	private RoomRepository roomRepository;
 
 	
 	public List<com.example.hackaton.model.Desk> getAll() {
 		// TODO Auto-generated method stub
 		return deskRepository.findAll();
+	}
+
+
+	public List<Desk> getByRoom(String roomId) {
+		// TODO Auto-generated method stub
+		return roomRepository.findById(roomId).get().getDesks();
 	}
 	
 }
