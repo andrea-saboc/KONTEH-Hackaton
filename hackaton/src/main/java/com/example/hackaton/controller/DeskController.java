@@ -55,7 +55,8 @@ public class DeskController {
 			return new ResponseEntity<String>("Desk successfully deleted!", HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
-			return new ResponseEntity<String>("Error occured during desk deletion!", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<String>("Error occured during desk deletion!", HttpStatus.NOT_FOUND
+					);
 		}
 		
 		

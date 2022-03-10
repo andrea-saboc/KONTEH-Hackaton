@@ -40,6 +40,12 @@ public class Desk {
 	public void setOrder(int order) {
 		this.orderr = order;
 	}
+	@Override
+	public String toString() {
+		return "Desk [id=" + id + ", orderr=" + orderr + "]";
+	}
+	
+	
 	
 	
 }

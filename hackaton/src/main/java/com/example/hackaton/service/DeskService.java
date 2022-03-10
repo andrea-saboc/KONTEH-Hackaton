@@ -56,11 +56,17 @@ public class DeskService {
 		Room room = roomRepository.getById(desk.roomId);
 		Desk newDesk = new Desk(generateRandomAlphanumericString(), getMaxOrder(room));
 		deskRepository.save(newDesk);
+		updateRoom(room, newDesk);
 		
+		return newDesk;
+	}
+
+	private void updateRoom(Room room, Desk newDesk) {
+		// TODO Auto-generated method stub
 		ArrayList<Desk> roomsDesks = new ArrayList<Desk>(room.getDesks());
 		roomsDesks.add(newDesk);
 		room.setDesks(new HashSet<Desk>(roomsDesks));
-		return null;
+		roomRepository.save(room);	
 	}
 
 	private int getMaxOrder(Room room) {
